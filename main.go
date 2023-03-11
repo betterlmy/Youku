@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/orm"
+	"github.com/beego/beego/v2/adapter/orm"
+	beego "github.com/beego/beego/v2/server/web"
 	_ "github.com/go-sql-driver/mysql"
 	_ "youku/routers"
 )
 
 func main() {
 	//beego.SetStaticPath("/download", "download")
-	defaultdb := beego.AppConfig.String("defaultdb")
+	defaultdb, _ := beego.AppConfig.String("defaultdb")
 	err := orm.RegisterDriver("mysql", orm.DRMySQL)
 	if err != nil {
 		fmt.Println(err)
