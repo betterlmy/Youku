@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"fyoukuApi/models"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
+	"github.com/beego/beego/v2/core/logs"
+	beego "github.com/beego/beego/v2/server/web"
 )
 
 type UserController struct {
@@ -42,5 +42,5 @@ func (c *UserController) SaveRegister() {
 		}
 
 	}
-	c.ServeJSON() // 框架将json个数的数据返回给前端
+	_ = c.ServeJSON() // 框架将json个数的数据返回给前端
 }

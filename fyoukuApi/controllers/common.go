@@ -3,8 +3,8 @@ package controllers
 import (
 	"crypto/md5"
 	"fmt"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
+	"github.com/beego/beego/v2/core/logs"
+	beego "github.com/beego/beego/v2/server/web"
 	"regexp"
 )
 
@@ -41,7 +41,7 @@ func checkPhoneFmt(mobile string) bool {
 
 // MD5V 将密码通过MD5拼接一个字符串进行加密操作
 func MD5V(password string) string {
-	suffix := beego.AppConfig.String("md5code")
+	suffix, _ := beego.AppConfig.String("md5code")
 	if suffix == "" {
 		logs.Error("缺少md5code配置")
 		suffix = "youku"
