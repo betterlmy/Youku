@@ -7,13 +7,13 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["fyoukuApi/controllers:UserController"] = append(beego.GlobalControllerRouter["fyoukuApi/controllers:UserController"],
-		beego.ControllerComments{
-			Method:           "SaveRegister",
-			Router:           `/register/save`,
-			AllowHTTPMethods: []string{"get"},
-			MethodParams:     param.Make(),
-			Filters:          nil,
-			Params:           nil})
+    beego.GlobalControllerRouter["fyoukuApi/controllers:UserController"] = append(beego.GlobalControllerRouter["fyoukuApi/controllers:UserController"],
+        beego.ControllerComments{
+            Method: "SaveRegister",
+            Router: `/register/save`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
 }

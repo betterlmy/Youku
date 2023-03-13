@@ -11,7 +11,7 @@ type UserController struct {
 }
 
 // SaveRegister 用户注册功能
-// @router /register/save [get]
+// @router /register/save [post]
 func (c *UserController) SaveRegister() {
 	logs.Info("尝试注册")
 	var (
@@ -22,7 +22,7 @@ func (c *UserController) SaveRegister() {
 	// 接收参数
 	mobile = c.GetString("mobile")
 	password = c.GetString("password")
-
+	logs.Info("mobile:", mobile, "password:", password)
 	// 判断格式
 	if mobile == "" {
 		c.Data["json"] = ReturnError(4001, "手机号不能为空") // 将json数据返回给前端
@@ -42,5 +42,6 @@ func (c *UserController) SaveRegister() {
 		}
 
 	}
+	logs.Info(c.Data["json"])
 	_ = c.ServeJSON() // 框架将json个数的数据返回给前端
 }
